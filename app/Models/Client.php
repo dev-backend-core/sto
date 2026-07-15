@@ -20,4 +20,9 @@ class Client extends Model
     {
         return $this->hasMany(Appointment::class);
     }
+
+    public function latestAppointment()
+    {
+        return $this->hasOne(Appointment::class)->latestOfMany();
+    }
 }

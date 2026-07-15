@@ -20,4 +20,9 @@ class Service extends Model
     {
         return $this->belongsToMany(Product::class)->withPivot('quantity_needed')->withTimestamps();
     }
+
+    public function serviceProducts()
+    {
+        return $this->hasMany(ServiceProduct::class);
+    }
 }

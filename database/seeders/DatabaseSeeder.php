@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
     {
         User::factory()->create([
             'name' => 'Хозяин СТО',
-            'email' => 'boss@gmail.com',
+            'email' => '1@gmail.com',
         ]);
 
         $mechanics = User::factory(5)->create(); // 5 фейковых механиков (Николаевич, Васильевич и т.д.)
