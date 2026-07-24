@@ -17,10 +17,6 @@ class User extends Authenticatable
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
 
-    public function isOwner(): bool
-    {
-        return $this->role === 'owner';
-    }
 
     public function isAdmin(): bool
     {

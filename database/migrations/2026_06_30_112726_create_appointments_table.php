@@ -17,7 +17,6 @@ return new class extends Migration
             $table->foreignId('car_id')->constrained();
 
             $table->foreignId('service_id')->constrained();
-            $table->foreignId('box_id')->constrained();
             
             // Механик уволился? Поле станет NULL, но вся история ремонта и деньги сохранятся!
             $table->foreignId('mechanic_id')

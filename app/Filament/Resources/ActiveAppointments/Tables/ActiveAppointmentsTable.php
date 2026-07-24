@@ -10,6 +10,9 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Enums\PaginationMode;
 use Filament\Tables\Columns\IconColumn;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Auth;
+use Filament\Actions\Action;
+use Filament\Forms\Components\TextInput;
 
 class ActiveAppointmentsTable
 {
@@ -55,11 +58,13 @@ class ActiveAppointmentsTable
                 // БЛОК 5: Деньги и Оплата (Цена + иконка статуса рядом)
                 TextColumn::make('service.price')
                     ->label('Стоимость')
+                    ->visible(fn () => Auth::user()->role === 'admin')
                     ->money('RUB', locale:'ru') 
                     ->sortable(),
 
                 IconColumn::make('payment_status')
                     ->label('Оплата')
+                    ->visible(fn () => Auth::user()->role === 'admin')
                     ->options([
                         'heroicon-o-check-circle' => 'paid',
                         'heroicon-o-x-circle' => 'unpaid',
@@ -69,16 +74,45 @@ class ActiveAppointmentsTable
                         'danger' => 'unpaid',
                     ]),
             ])
-            ->filters([
-                //
-            ])
-            ->recordActions([
-                // EditAction::make(),
-            ])
-            ->toolbarActions([
-                // BulkActionGroup::make([
-                //     DeleteBulkAction::make(),
-                // ]),
+            ->actions([
+            // Кнопка "Принять"
+                Action::make('accept')
+                    ->label('Принять заказ')
+                    ->color('success')
+                    // Кнопка видна ТОЛЬКО механику и ТОЛЬКО для записей со статусом 'pending'
+                    ->visible(fn ($record) => Auth::user()->role === 'mechanic' && $record->status === 'confirmed')
+                    
+                    // Открываем форму внутри модалки для ввода VIN и номера
+                    ->form([
+                        TextInput::make('vin')
+                            ->label('VIN-номер')
+                            ->length(17),
+                        TextInput::make('number_plate')
+                            ->label('Номер машины')
+                            ->required(),
+                    ])
+                    // Сохраняем данные при отправке формы
+                    ->action(function ($record, array $data) {
+                        $record->update([
+                            'status' => 'in_work',
+                        ]);
+
+                        // 2. Обновляем VIN и госномер в связанной таблице машин (car)
+                        if ($record->car) {
+                            $record->car->update([
+                                'vin' => $data['vin'],
+                                'number_plate' => $data['number_plate'],
+                            ]);
+                        }
+                    }),
+
+                // Кнопка "Отклонить"
+                Action::make('decline')
+                    ->label('Отклонить')
+                    ->color('danger')
+                    ->visible(fn ($record) => Auth::user()->role === 'mechanic' && $record->status === 'confirmed')
+                    ->requiresConfirmation() // Спросить "Вы уверены?"
+                    ->action(fn ($record) => $record->update(['status' => 'canceled'])),
             ])
             ->paginationMode(PaginationMode::Simple);
     }

@@ -23,22 +23,10 @@ class UserResource extends Resource
     protected static ?string $model = User::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::User; //изменение icon таблицы
-    protected static ?string $modelLabel = 'cliente'; 
-    protected static ?string $navigationLabel = 'Mis Clientes';//изменение названия таблицы
-    protected static string | UnitEnum | null $navigationGroup = 'Shop';
-    protected static ?string $slug = 'pending-orders'; //url
-    
-    protected static string|Htmlable|null $navigationBadgeTooltip = 'The number of users';
-    public static function getNavigationBadge(): ?string
-    {
-        return static::getModel()::count();
-    }
-
-    // Добавлено: Этот метод управляет цветом бэйджа в зависимости от условий
-    public static function getNavigationBadgeColor(): ?string
-    {
-        return static::getModel()::count() > 1 ? 'primary' : 'primary';
-    }
+    protected static ?string $pluralModelLabel = 'Сотрудники'; 
+    protected static ?string $navigationLabel = 'Сотрудники';//изменение названия таблицы
+    // protected static string | UnitEnum | null $navigationGroup = 'Shop';
+    // protected static ?string $slug = 'pending-orders'; //url
 
     public static function form(Schema $schema): Schema
     {

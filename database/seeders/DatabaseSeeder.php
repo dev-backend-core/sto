@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
         $mechanics = User::factory(5)->create(); // 5 фейковых механиков (Николаевич, Васильевич и т.д.)
 
         // 2. Создаем Боксы, Услуги и Товары
-        $boxes = Box::factory(4)->create(); // 4 рабочих бокса
+      
         $products = Product::factory(10)->create(); // 20 видов товаров на складе
         $services = Service::factory(5)->create(); // 10 видов услуг
 
@@ -43,17 +43,16 @@ class DatabaseSeeder extends Seeder
         });
 
         $clients = Client::factory(5)->create(); // 15 клиентов
-        $clients->each(function ($client) use ($mechanics, $services, $boxes) {
+        $clients->each(function ($client) use ($mechanics, $services) {
             // Создаем клиенту от 1 до 2 машин
             $cars = Car::factory(rand(1, 2))->create(['client_id' => $client->id]);
 
             // Для каждой машины генерируем несколько записей на ремонт
-            $cars->each(function ($car) use ($client, $mechanics, $services, $boxes) {
+            $cars->each(function ($car) use ($client, $mechanics, $services) {
                 Appointment::factory(rand(1, 2))->create([
                     'client_id' => $client->id,
                     'car_id' => $car->id,
                     'service_id' => $services->random()->id,
-                    'box_id' => $boxes->random()->id,
                     'mechanic_id' => $mechanics->random()->id,
                 ]);
             });

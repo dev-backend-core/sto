@@ -24,10 +24,6 @@ class Appointment extends Model
         'appointment_date' => 'datetime',
     ];
 
-    public function box()
-    {
-        return $this->belongsTo(Box::class);
-    }
 
     public function car()
     {

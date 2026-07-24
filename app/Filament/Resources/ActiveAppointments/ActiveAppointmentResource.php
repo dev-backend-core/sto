@@ -11,7 +11,6 @@ use App\Models\Appointment;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
@@ -20,7 +19,8 @@ class ActiveAppointmentResource extends Resource
 {
     protected static ?string $model = Appointment::class;
 
-    protected static ?string $navigationLabel = 'Все записи СТО';
+    protected static ?string $navigationLabel = 'Записи';
+    protected static ?string $pluralModelLabel = 'Записи';
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-clipboard-document-list';
 
     // Фильтруем: исключаем статус 'pending'

@@ -22,6 +22,7 @@ class NewAppointmentResource extends Resource
 
     // Меняем название вкладки в меню
     protected static ?string $navigationLabel = 'Новые заявки';
+    protected static ?string $pluralModelLabel = 'Новые заявки';
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-bell';
     // Заставляет Filament проверять счетчик в меню каждые 3 секунды
     protected static string|Htmlable|null $navigationBadgeTooltip = 'Новые заявки с сайта';
