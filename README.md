@@ -52,19 +52,23 @@
 ```
 
 
-### 🔑 Тестовые доступы для демонстрацииВ базе данных предзаполнены демонстрационные фейковые данные
-Администратор 1@gmail.com password
-Механик mechanic@gmail.com (любой из базы) password
+### 🔑 Тестовые доступы для демонстрации,в базе данных предзаполнены демонстрационные фейковые данные
+Администратор 1@gmail.com (password)
+Механик xavier24@example.com (любой из базы) (password)
 
 ### 🚀 Быстрый запуск проекта в Docker (Laravel Sail)
 Клонировать репозиторий:Bashgit clone [https://github.com/dev-backend-core/sto.git](https://github.com/dev-backend-core/sto.git)
 cd sto
 
-Настроить переменные окружения:Bashcp .env.example .env
+### Настроить переменные окружения:
+Bashcp .env.example .env
 Запустить контейнеры Docker:Bash./vendor/bin/sail up -d
-Установить зависимости и выполнить миграции с сидами:Bash./vendor/bin/sail composer install
+
+###  Установить зависимости и выполнить миграции с сидами:
+Bash./vendor/bin/sail composer install
 ./vendor/bin/sail artisan key:generate
 ./vendor/bin/sail artisan migrate --seed
+
 Приложение будет доступно по адресу: http://localhost
 ---
 
