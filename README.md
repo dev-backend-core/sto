@@ -44,7 +44,12 @@
 
 
 ### 🛠 Стек технологий и инфраструктураBackend:
-PHP 8.3 / Laravel 11Admin Panel: FilamentPHP v3, Livewire v3Frontend: Alpine.js, Tailwind CSSDatabase: MySQL 8.0 (реляционная база, внешние ключи, транзакции)DevOps / Environment: Docker (Laravel Sail)
+* **PHP 8.3**
+* **Laravel 11**
+* **Admin Panel: FilamentPHP v3, Livewire v3**
+* **Frontend: HTML,Tailwind CSS**
+* **Database: MySQL 8.0**
+* **Environment: Docker (Laravel Sail)**
 
 ### 🔑 Тестовые доступы для демонстрацииВ базе данных предзаполнены демонстрационные фейковые данные
 Администратор 1@gmail.com password
