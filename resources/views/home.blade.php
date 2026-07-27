@@ -92,10 +92,10 @@
                 <div class="col-lg-6">
                     <div class="hero-image-wrapper" data-aos="fade-up" data-aos-delay="300">
                     
-                    <!-- Не забудьте обновить путь к картинке и добавить asset(), если это Blade -->
+                   
                     <img src="{{ asset('assets/img/clients/service.png') }}" alt="Ремонт автомобиля" class="img-fluid hero-image">
                     
-                    <!-- Карточка статистики 1 (Верхняя) -->
+                   
                     <div class="stat-card top-right">
                         <div class="stat-value">5 000+</div>
                         <div class="stat-label">Отремонтированных авто</div>
@@ -104,7 +104,7 @@
                         </div>
                     </div>
                     
-                    <!-- Карточка статистики 2 (Нижняя) -->
+                   
                     <div class="stat-card bottom-left">
                         <div class="stat-value">99%</div>
                         <div class="stat-label">Довольных клиентов</div>
@@ -132,7 +132,7 @@
         </div>
         </div>
 
-        <!-- 4 карточки основных услуг -->
+       
         <div class="row g-4 mb-5">
           @forelse ($services as $item)
               <div class="col-sm-6 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
@@ -147,10 +147,10 @@
 
         </div>
 
-        <!-- Подробный блок о квалификации и услугах -->
+       
         <div class="row align-items-center about-showcase">
         
-        <!-- Картинки сервиса -->
+      
         <div class="col-lg-6 order-lg-2" data-aos="fade-left" data-aos-delay="300">
             <div class="about-image-grid">
             <img src="{{ asset('assets/img/clients/service.png') }}" class="img-grid-main" alt="Ремонт авто">
@@ -162,7 +162,7 @@
             </div>
         </div>
 
-        <!-- Текст и шкала специализации -->
+       
         <div class="col-lg-6 order-lg-1" data-aos="fade-right" data-aos-delay="200">
             <div class="about-content-box">
             <h3>Качественный сервис для вашего авто</h3>
@@ -199,7 +199,7 @@
                 </div>
             </div>
 
-            <!-- Кнопка ведет на страницу со всем прайсом/услугами -->
+           
             <button  class="btn btn-discover mt-4">Посмотреть весь прайс-лист</button>
             </div>
         </div>

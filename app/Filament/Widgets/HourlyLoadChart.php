@@ -9,7 +9,7 @@ use Carbon\Carbon;
 
 class HourlyLoadChart extends ChartWidget
 {
-    protected ?string $heading = 'Загруженность СТО по часам (Часы пик)';
+    protected ?string $heading = 'Загруженность СТО по часам';
     protected static ?int $sort = 2;
     // Оставляем свойство пустым или null по умолчанию
     public ?string $filter = null; 

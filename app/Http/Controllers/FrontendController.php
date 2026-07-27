@@ -54,7 +54,7 @@ class FrontendController extends Controller
                     $model = trim($matches[2]); 
                 } else {
                     $brand = $request->car_brand;
-                    $model = null;
+                    $model = 'не указана';
                 }
             
 
@@ -65,8 +65,7 @@ class FrontendController extends Controller
                 ]);
 
                 // 4. Запись на сервис
-                // ИСПРАВЛЕНО: связь вызывается как метод appointments(), 
-                // а дата и время склеиваются в одну строку 'YYYY-MM-DD HH:MM:SS'
+                // дата и время склеиваются в одну строку 'YYYY-MM-DD HH:MM:SS'
                 $client->appointments()->create([
                     'car_id'           => $car->id,
                     'service_id'       => $request->service_id,
