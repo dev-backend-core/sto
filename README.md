@@ -43,13 +43,14 @@
  [Ввод VIN и гос. номера]
 
 
-🛠 Стек технологий и инфраструктураBackend: PHP 8.3 / Laravel 11Admin Panel: FilamentPHP v3, Livewire v3Frontend: Alpine.js, Tailwind CSSDatabase: MySQL 8.0 (реляционная база, внешние ключи, транзакции)DevOps / Environment: Docker (Laravel Sail)
+### 🛠 Стек технологий и инфраструктураBackend:
+PHP 8.3 / Laravel 11Admin Panel: FilamentPHP v3, Livewire v3Frontend: Alpine.js, Tailwind CSSDatabase: MySQL 8.0 (реляционная база, внешние ключи, транзакции)DevOps / Environment: Docker (Laravel Sail)
 
-🔑 Тестовые доступы для демонстрацииВ базе данных предзаполнены демонстрационные фейковые данные
+### 🔑 Тестовые доступы для демонстрацииВ базе данных предзаполнены демонстрационные фейковые данные
 Администратор 1@gmail.com password
 Механик mechanic@gmail.com (любой из базы) password
 
-🚀 Быстрый запуск проекта в Docker (Laravel Sail)
+### 🚀 Быстрый запуск проекта в Docker (Laravel Sail)
 Клонировать репозиторий:Bashgit clone [https://github.com/dev-backend-core/sto.git](https://github.com/dev-backend-core/sto.git)
 cd sto
 Настроить переменные окружения:Bashcp .env.example .env
