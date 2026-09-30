@@ -66,7 +66,7 @@ cp .env.example .env <br>
 3) Установить Composer-зависимости (первый запуск на хосте):
 Так как версия PHP на компьютере может отличаться от требований проекта, устанавливаем зависимости без выполнения скриптов:
 
-composer install --ignore-platform-reqs --no-scripts
+    composer install --ignore-platform-reqs --no-scripts
 
 4) Запустить контейнеры Docker:
 ./vendor/bin/sail up -d
