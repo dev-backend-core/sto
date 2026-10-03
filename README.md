@@ -58,8 +58,9 @@
 Администратор - 1@gmail.com (password) <br>
 Механик - xavier24@example.com (password)
 
-> **Предварительные требования:** Установленный и запущенный **Docker Desktop**.
 ### 🚀 Быстрый запуск проекта в Docker (Laravel Sail)
+> **Предварительные требования:** Установленный и запущенный **Docker Desktop**.
+
 1) Клонировать репозиторий: <br>
 git clone https://github.com/dev-backend-core/sto.git <br>
 cd sto
@@ -77,10 +78,10 @@ cp .env.example .env <br>
       laravelsail/php83-composer:latest \
       composer install --ignore-platform-reqs
 
-5) Запустить контейнеры Docker:
+5) Запустить контейнеры Docker: <br>
 ./vendor/bin/sail up -d
 
-6) Установить зависимости и выполнить миграции с сидами:
+6) Установить зависимости и выполнить миграции с сидами: <br>
 ./vendor/bin/sail artisan key:generate  <br>
 ./vendor/bin/sail artisan migrate --seed  <br>
 
