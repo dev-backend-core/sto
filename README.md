@@ -52,31 +52,37 @@
 ```
 
 ### 🔑 Тестовые доступы для демонстрации,в базе данных предзаполнены демонстрационные фейковые данные
-Администратор 1@gmail.com (password) <br>
-Механик xavier24@example.com (любой из базы) (password)
+Сайт ссылка : http://80.87.193.245:8080
+
+Админка ссылка : http://80.87.193.245:8080/admin/login <br>
+Администратор - 1@gmail.com (password) <br>
+Механик - xavier24@example.com (любой из базы) (password)
 
 ### 🚀 Быстрый запуск проекта в Docker (Laravel Sail)
+> **Предварительные требования:** Установленный и запущенный **Docker Desktop**.
 1) Клонировать репозиторий: <br>
-Bashgit clone [https://github.com/dev-backend-core/sto.git](https://github.com/dev-backend-core/sto.git)
+git clone https://github.com/dev-backend-core/sto.git <br>
 cd sto
 
 2) Настроить переменные окружения:  <br>
-Bashcp .env.example .env <br>
-Запустить контейнеры Docker:Bash./vendor/bin/sail up -d
+cp .env.example .env <br>
 
-3) Установить зависимости и выполнить миграции с сидами:
-Bash./vendor/bin/sail composer install <br>
+3) Установить Composer-зависимости (первый запуск на хосте):<br>
+Если у вас локально не установлен PHP/Composer, эта команда выполнит установку внутри временного контейнера
+
+    docker run --rm \
+      -u "$(id -u):$(id -g)" \
+      -v "$(pwd):/var/www/html" \
+      -w /var/www/html \
+      laravelsail/php83-composer:latest \
+      composer install --ignore-platform-reqs
+
+5) Запустить контейнеры Docker:
+./vendor/bin/sail up -d
+
+6) Установить зависимости и выполнить миграции с сидами:
 ./vendor/bin/sail artisan key:generate  <br>
 ./vendor/bin/sail artisan migrate --seed  <br>
 
-4) Приложение будет доступно по адресу: http://localhost
-
-
-### Как добавить его в проект через консоль:
-Находясь в папке проекта, выполни:
-
-```bash
-git add README.md
-git commit -m "docs: add comprehensive README with project description"
-git push
+7) Приложение будет доступно по адресу: http://localhost
 
