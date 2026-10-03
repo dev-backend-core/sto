@@ -59,6 +59,7 @@
 Механик - xavier24@example.com (любой из базы) (password)
 
 ### 🚀 Быстрый запуск проекта в Docker (Laravel Sail)
+> **Предварительные требования:** Установленный и запущенный **Docker Desktop**.
 1) Клонировать репозиторий: <br>
 git clone https://github.com/dev-backend-core/sto.git <br>
 cd sto
